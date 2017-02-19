@@ -1,6 +1,6 @@
 <div id="message">
 	<transition name="fade">
-		<message v-if="showMessage" v-cloak>Se ha agregado el @{{resource}} correctamente.</message>
+		<message v-if="showMessage" v-cloak>@{{notification}}</message>
 	</transition>
 </div>
 
@@ -20,13 +20,13 @@ new Vue({
 	el: '#message',
 	data: {
 		showMessage: false,
-		resource: ''
+		notification: ''
 	},
 	created() {
-		Event.$on('added', (data) => {
+		Event.$on('notify', (data) => {
 			this.showMessage = true;
-			setTimeout(() => this.showMessage = false, 2500);
-			this.resource = data.resource;
+			setTimeout(() => this.showMessage = false, 2000);
+			this.notification = data.notification;
 		});
 	}
 })

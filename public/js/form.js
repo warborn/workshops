@@ -16,7 +16,7 @@ class Form {
 	 * Reset the form fields.
 	 */
 	reset() {
-		for(let field in originalData) {
+		for(let field in this.originalData) {
 			this[field] = '';
 		}
 		this.errors.clear();
@@ -101,6 +101,7 @@ class Form {
 	 * @param {object} data
 	 */
 	onSuccess(data) {
+		this.reset();
 		this.isSubmitting = false;
 	}
 

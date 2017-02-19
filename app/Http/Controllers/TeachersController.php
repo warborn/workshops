@@ -28,4 +28,10 @@ class TeachersController extends Controller
 
   		return ['message' => 'Profesor Agregado!', 'object' => $teacher];
     }
+
+    public function destroy(Teacher $teacher)
+    {
+      $teacher->delete();
+      return ['message' => 'Profesor Eliminado!', 'object' => $teacher];
+    }
 }

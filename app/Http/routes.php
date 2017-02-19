@@ -15,3 +15,12 @@ Route::get('/', 'HomeController@index');
 
 Route::get('/teachers', 'TeachersController@index');
 Route::post('/teachers', 'TeachersController@store');
+Route::delete('/teachers/{teacher}', 'TeachersController@destroy');
+
+Route::get('/courses', 'CoursesController@index');
+Route::post('/courses', 'CoursesController@store');
+Route::delete('/courses/{course}', 'CoursesController@destroy');
+
+Route::get('/classrooms', 'ClassroomsController@index');
+Route::post('/classrooms', 'ClassroomsController@store');
+Route::delete('/classrooms/{classroom}', 'ClassroomsController@destroy');

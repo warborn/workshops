@@ -110,7 +110,8 @@ return [
 
     'attributes' => [
         'name' => 'nombre',
-        'email' => 'correo electrónico'
+        'email' => 'correo electrónico',
+        'id' => 'clave'
     ],
 
 ];
