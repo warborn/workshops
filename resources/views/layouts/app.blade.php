@@ -13,6 +13,9 @@
         </div>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+        <script>window.Event = new Vue();</script>
+        <script src="/js/errors.js"></script>
+        <script src="/js/form.js"></script>
         <script src="/js/app.js"></script>
         @stack('vue')
     </body>
