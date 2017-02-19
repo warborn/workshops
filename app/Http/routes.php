@@ -12,3 +12,6 @@
 */
 
 Route::get('/', 'HomeController@index');
+
+Route::get('/teachers', 'TeachersController@index');
+Route::post('/teachers', 'TeachersController@store');
