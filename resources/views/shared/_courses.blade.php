@@ -16,7 +16,7 @@
 
 	<hr>
 
-	<table class="table is-bordered is-narrow" v-if="courses.length > 0">
+	<table class="table is-bordered is-narrow" v-if="lists.courses.length > 0">
 		<thead>
 			<tr>
 				<th>Nombre</th>
@@ -25,7 +25,7 @@
 			</tr>
 		</thead>
 		<tbody tag="div" name="fade" id="transition-group" v-cloak>
-			<tr v-for="course in courses" :key="course.id">
+			<tr v-for="course in lists.courses" :key="course.id">
 				<td>@{{course.name}}</td>
 				<td>@{{course.id}}</td>
 				<td>
@@ -45,7 +45,7 @@
 new Vue({
 	el: '#app-courses',
 	data: {
-		courses: [],
+		lists: lists,
 		form: new Form({
 			name: '',
 			id:   ''
@@ -53,13 +53,13 @@ new Vue({
  	},
 	mounted() {
 		axios.get('/courses')
-			.then(response => this.courses = response.data)
+			.then(response => this.lists.courses = response.data)
 	},
 	methods: {
 		onSubmit() {
 			this.form.post('/courses')
 				.then(data => {
-						this.courses.push(data.object);
+						this.lists.courses.push(data.object);
 						Event.$emit('notify', {notification: data.message})
 				})
 				.catch(error => console.log(error));
@@ -67,8 +67,12 @@ new Vue({
 		onDelete(id) {
 			this.form.delete(`/courses/${id}`)
 				.then(data => {
-					this.courses.splice(this.courses.findIndex(course => course.id == data.object.id), 1);
+					this.lists.courses.splice(this.lists.courses.findIndex(course => course.id == data.object.id), 1);
 					Event.$emit('notify', {notification: data.message});
+				})
+				.catch(error => {
+					console.log(error);
+					Event.$emit('notify', {notification: error.message});
 				});
 		}
 	}

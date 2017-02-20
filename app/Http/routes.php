@@ -24,3 +24,7 @@ Route::delete('/courses/{course}', 'CoursesController@destroy');
 Route::get('/classrooms', 'ClassroomsController@index');
 Route::post('/classrooms', 'ClassroomsController@store');
 Route::delete('/classrooms/{classroom}', 'ClassroomsController@destroy');
+
+Route::get('/workshops', 'WorkshopsController@index');
+Route::post('/workshops', 'WorkshopsController@store');
+Route::delete('/workshops/{workshop}', 'WorkshopsController@destroy');

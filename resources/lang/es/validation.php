@@ -111,7 +111,12 @@ return [
     'attributes' => [
         'name' => 'nombre',
         'email' => 'correo electrónico',
-        'id' => 'clave'
+        'id' => 'clave',
+        'teacher_id' => 'profesor',
+        'course_id' => 'curso',
+        'classroom' => 'aula',
+        'start_hour' => 'hora de inicio',
+        'end_hour' => 'hora de termino'
     ],
 
 ];
