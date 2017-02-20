@@ -31,7 +31,11 @@ class TeachersController extends Controller
 
     public function destroy(Teacher $teacher)
     {
-      $teacher->delete();
-      return ['message' => 'Profesor Eliminado!', 'object' => $teacher];
+      if(!$teacher->hasWorkshops()) {
+        $teacher->delete();
+        return ['message' => 'Profesor Eliminado!', 'object' => $teacher];
+      } else {
+        return response()->json(['message' => 'No se pudo eliminar el profesor!'], 422);
+      }
     }
 }

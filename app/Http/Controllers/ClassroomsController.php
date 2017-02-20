@@ -31,7 +31,11 @@ class ClassroomsController extends Controller
 
     public function destroy(Classroom $classroom)
     {
-      $classroom->delete();
-      return ['message' => 'Aula Eliminada!', 'object' => $classroom];
+      if(!$classroom->hasWorkshops()) {
+        $classroom->delete();
+        return ['message' => 'Aula Eliminada!', 'object' => $classroom];
+      } else {
+        return response()->json(['message' => 'No se pudo eliminar el aula!'], 422);
+      }
     }
 }

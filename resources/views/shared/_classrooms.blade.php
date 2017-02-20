@@ -31,7 +31,7 @@
 				<td>
 					<a class="button" @click="onDelete(classroom.id)">
 				    <span class="icon is-small">
-				      <i class="fa fa-times" aria-hidden="true"></i>
+				      ✖
 				    </span>
 				  </a>
 				</td>
@@ -69,6 +69,10 @@ new Vue({
 				.then(data => {
 					this.lists.classrooms.splice(this.lists.classrooms.findIndex(classroom => classroom.id == data.object.id), 1);
 					Event.$emit('notify', {notification: data.message});
+				})
+				.catch(error => {
+					console.log(error);
+					Event.$emit('notify', {notification: error.message});
 				});
 		}
 	}

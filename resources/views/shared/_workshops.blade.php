@@ -79,7 +79,7 @@
 				<td>
 					<a class="button" @click="onDelete(workshop.id)">
 				    <span class="icon is-small">
-				      <i class="fa fa-times" aria-hidden="true"></i>
+				      ✖
 				    </span>
 				  </a>
 				</td>
