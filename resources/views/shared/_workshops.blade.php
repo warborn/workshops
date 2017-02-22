@@ -113,7 +113,11 @@ new Vue({
 		onSubmit() {
 			this.form.post('/workshops')
 				.then(data => {
+						let days = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'];
 						this.workshops.push(data.object);
+						this.workshops.sort(
+														firstBy(w => days.indexOf(w.day))
+													 .thenBy('start_hour'));
 						Event.$emit('notify', {notification: data.message})
 				})
 				.catch(error => console.log(error));

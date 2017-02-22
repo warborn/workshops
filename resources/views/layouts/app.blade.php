@@ -14,6 +14,7 @@
         </div>
         <script src="/vendor/js/axios.min.js"></script>
         <script src="/vendor/js/vue.min.js"></script>
+        <script src="/vendor/js/thenby.min.js"></script>
         <script>
             window.Event = new Vue();
 

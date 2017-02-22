@@ -11,7 +11,7 @@ class WorkshopsController extends Controller
 {
     public function index()
     {
-    	return response()->json(Workshop::with('teacher')->with('course')->with('classroom')->get());
+    	return response()->json(Workshop::orderBy('day')->orderBy('start_hour')->with('teacher')->with('course')->with('classroom')->get());
     }
 
     public function store()
