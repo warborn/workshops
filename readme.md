@@ -1,27 +1,60 @@
-# Laravel PHP Framework
+# Workshops
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Is a very basic single page application to test the Vue.js framework, it's connected
+to an internal API built with the Laravel framework.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+It uses Vue's features like:
+- Templates
+- Components
+- Slots
+- Broadcast / Emit
+- Two way data binding
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## How it works
 
-## Official Documentation
+You can add new teacher, courses and classrooms data as well as remove it.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+![Screenshot of the forms to add new data](https://s20.postimg.org/mi3gj331p/homepage.png)
 
-## Contributing
+When adding new data instantly you will see that the new data appear below in the corresponding table and in the workshops table, the same happens when you remove data.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+In the workshops table you can now select a teacher, course, classroom, day and time to add a new workshop.
 
-## Security Vulnerabilities
+![Screenshot of workshops table and form](https://s20.postimg.org/8n560m8ml/workshops.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+All the data is sended to laravel and persisted in a database.
 
-## License
+## Installation
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Clone this repository
+
+```
+git clone https://github.com/warborn/workshops.git
+```
+
+Enter the project and install the dependencies
+```
+cd workshops
+composer install
+```
+
+Create an **.env** by copying the **.env.example** file located at the root of the directory and generate a security key used by laravel
+```
+cp .env.example .env
+php artisan key:generate
+```
+
+Change the following values in the newly created **.env** file accordingly:
+```
+DB_DATABASE=dbname
+DB_USERNAME=dbuser
+DB_PASSWORD=password
+```
+
+Setup the database schema and fireup the server
+```
+php artisan migrate
+php artisan serve
+```
+
+Now you can check the app on [http://localhost:8000/](http://localhost:8000/)
